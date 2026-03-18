@@ -1,0 +1,45 @@
+{
+  "buildCommand": "npm install",
+  "outputDirectory": "api",
+  "env": {
+    "CLAUDE_API_KEY": "@claude_api_key",
+    "ELEVENLABS_API_KEY": "@elevenlabs_api_key",
+    "DATABASE_URL": "@database_url",
+    "JWT_SECRET": "@jwt_secret"
+  },
+  "regions": ["iad1"],
+  "functions": {
+    "api/**/*.js": {
+      "memory": 512,
+      "maxDuration": 30
+    }
+  }
+}
+```
+
+4. Click **Commit changes**
+
+---
+
+### Step 4: Create .env.example
+
+1. Click **Add file** → **Create new file**
+2. **Name the file:** `.env.example`
+3. **Paste this content:**
+```
+# Database
+DATABASE_URL=postgres://user:password@host:5432/solusdb
+
+# Claude API
+CLAUDE_API_KEY=sk-ant-...
+
+# ElevenLabs
+ELEVENLABS_API_KEY=sk_...
+ELEVENLABS_VOICE_ID=21m00Tcm4TlvDq8ikWAM
+
+# Security
+JWT_SECRET=your_secret_key
+ADMIN_TOKEN=admin_token
+
+# Environment
+NODE_ENV=development
